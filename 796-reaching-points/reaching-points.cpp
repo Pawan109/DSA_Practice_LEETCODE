@@ -7,9 +7,9 @@ public:
             else         ty = ty % tx;
         }
 
-        if(tx==sx && ty>=sy) return (ty-sy)%tx == 0;
+        if(tx==sx && ty>=sy) return (ty-sy)%sx == 0;
 
-        else if(ty==sy && tx>=sx) return (tx-sx)%ty == 0;
+        else if(ty==sy && tx>=sx) return (tx-sx)%sy == 0;
 
         return false;
 
