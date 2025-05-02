@@ -45,7 +45,7 @@ public:
 
         // if(i<0||i>=board.size()|| j<0|| j>=board[0].size() || board[i][j]=='$'|| 
         //         !root->children[  board[i][j]-'a' ] )   return ;
-
+    if (!root || !root->children[board[i][j] - 'a']) return;
         root = root->children[ board[i][j]-'a' ];
 
         if(root->endOfWord == true){
