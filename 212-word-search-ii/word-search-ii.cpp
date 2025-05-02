@@ -43,8 +43,8 @@ public:
 
     void dfs(vector<vector<char>> &board, int i, int j, trieNode *root){
 
-        if(i<0||i>=board.size()|| j<0|| j>=board[0].size() || board[i][j]=='$'|| 
-                !root->children[  board[i][j]-'a' ] )   return ;
+        // if(i<0||i>=board.size()|| j<0|| j>=board[0].size() || board[i][j]=='$'|| 
+        //         !root->children[  board[i][j]-'a' ] )   return ;
 
         root = root->children[ board[i][j]-'a' ];
 
@@ -60,8 +60,9 @@ public:
         for(int k=0;k<4;k++){
             int newx = dx[k]+i;
             int newy = dy[k]+j;
-
-            dfs(board,newx,newy,root);
+            if(newx>=0 && newx<board.size() &&  newy>=0 &&  newy<board[0].size() &&  board[newx][newy]!='$' &&
+                root->children[  board[newx][newy]-'a' ]!=NULL )   
+                                        dfs(board,newx,newy,root);
         }
 
         board[i][j] = temp ; // backtrack. 
