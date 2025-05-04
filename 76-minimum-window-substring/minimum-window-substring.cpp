@@ -2,7 +2,7 @@ class Solution {
 public:
     string minWindow(string s, string t) {
         
-        map<char,int> mymap;
+        unordered_map<char,int> mymap;
 
         for(auto x: t) mymap[x]++;
 
