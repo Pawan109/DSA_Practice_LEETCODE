@@ -1,28 +1,59 @@
 class Solution {
 public:
     vector<int> findClosestElements(vector<int>& arr, int k, int x) {
-        //max heap
-        priority_queue< pair<int,int>> pq ;//diff, arr[i]
+        vector<int> ans;
+      int pos =-1;// index of closest element
 
-        for(int i=0;i<arr.size();i++){
+      int s = 0, e=arr.size()-1;
 
-            pq.push({abs(x-arr[i]), arr[i]});
-            if(pq.size()>k) pq.pop();
+      while(s<=e){
+        int mid = s+(e-s)/2;
 
+        if(arr[mid]==x){
+            pos = mid;
+            break;
+        }else if(arr[mid]<x){
+            s=mid+1;
+            pos = mid;
+        }
+        else e = mid-1;
+
+      }
+//two pointers left , rght
+    int left = pos;
+    int right = pos+1;
+    
+    while(k>0 && left>=0 && right<arr.size()){
+        
+        int diff1 = abs(arr[left] - x);
+        int diff2 = abs(arr[right] -x);
+
+        if(diff1<= diff2){
+            ans.push_back(arr[left]);
+            left--;
+        }
+        else{
+            ans.push_back(arr[right]);
+            right++;
         }
 
-//so now in pq i will have the k closest elements , how? 
-//dry run array: 2 3 7 8 9   x: 7  k=2 
-
-    //push this into ans 
-    vector<int> ans;
-    while(!pq.empty()){
-        ans.push_back(pq.top().second);
-        pq.pop();
+        k--;
     }
 
-sort(ans.begin(),ans.end());
-return ans;
+    while(k>0 && left>=0){
+        ans.push_back(arr[left]);
+        left--;
+        k--;
+    }
+
+    while(k>0 && right<arr.size()){
+        ans.push_back(arr[right]);
+        right++;
+        k--;
+    }
+
+    sort(ans.begin(),ans.end());
+    return ans;
 
     }
 };
