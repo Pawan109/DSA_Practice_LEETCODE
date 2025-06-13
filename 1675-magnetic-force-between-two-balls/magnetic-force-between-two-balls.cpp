@@ -28,10 +28,10 @@ public:
 //min force between two magneticballs -> both are adjacent -> a[i] and a[i+1], dist between them =1 
 //max force b/w two balls -> ek first position mein , ek last position mein .
         int s=1;
-        int e=  position[n-1] - position[0]; //sbse last kiss position mein rakh skte hai ball ko 
+        int e=  position[n-1] - position[0]; 
 
         // suppose 1 2 3 4 7 is my number line, and no. of magnetic balls m=3
-        //toh balls ko 1 2 and 3 pe rakha -> minforce between them is 3 
+        //toh balls ko 1 2 and 3 pe rakha -> minforce between them is 1
         //we can increase the min force
         //say balls are placed at min dist of 2, so we place it at 1 3 7   min((3-1),(7-3)) ==2
         ///--> min dist 2 is also possible
