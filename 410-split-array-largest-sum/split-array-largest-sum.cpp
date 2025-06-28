@@ -22,9 +22,12 @@ public:
     //where to split the array from  -> mid tak ke elements lelo-> itna sum ek split mein hoga , >mid aaya , fir split karo .
     //if splitting in k subarrays is possible -> store ans -> store minimum of largest sum i.e max (sum of each subarray )and look for a even better answer. 
 
+//search space -> 
+//minimum 
 //largest element in the array
 //minimum se minimum kitne split karskte hai -> n split 
 //if min maine kisi array ko one size ka split kardiya -> toh  sbse bada sum hoga -> max_element in the array 
+//maximum.
 // ab mujhe K mein split karna hai , toh maximum sum isse bada bhi hoskta hai ,
 // maximum sum kitna aaega -> we didn't split -> total sum  i.e the largest possible sum will be our max sum 
 
