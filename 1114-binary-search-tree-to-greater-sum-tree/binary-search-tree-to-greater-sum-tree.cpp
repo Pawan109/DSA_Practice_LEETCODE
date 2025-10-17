@@ -11,7 +11,6 @@
  */
 class Solution {
 public:
-
     void rev_inorder(TreeNode * root, int &sum){
         if(!root) return ;
 
@@ -31,5 +30,4 @@ public:
         rev_inorder(temp,sum);
         return root;
     }
-
 };
