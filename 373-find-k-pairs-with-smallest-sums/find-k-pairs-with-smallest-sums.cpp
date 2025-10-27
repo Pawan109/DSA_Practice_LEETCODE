@@ -23,12 +23,12 @@ public:
             auto f = pq.top();
             pq.pop();
 
-            int i = f.second.first;
-            int j = f.second.second;
+            int i = f.second.first; //index of ele in arr1
+            int j = f.second.second;//index of ele in arr2
 
             ans.push_back({ nums1[i], nums2[j]});
 
-             //Push (i, j+1) if possible  ->this indices exists and we haven't previously considered them.
+             //Push (i, j+1) if possible  ->if this indices exists and we haven't previously considered them.
             if(j+1<m && vis.find({i,j+1})==vis.end()){
                 pq.push({nums1[i]+ nums2[j+1] ,{i,j+1}});
                 vis.insert({i,j+1});
